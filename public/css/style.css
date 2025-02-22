@@ -1,0 +1,149 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+
+/* Footer */
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+.f-info-links a:hover {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links, .f-info-socials {
+    width: 100%;
+}
+
+.f-info-socials {
+    font-size: 1.5em;
+    margin-right: 2rem;
+}
+
+.f-info-socials i {
+    margin-right: 1rem;
+}
+
+.f-info {
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* Cards */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 0 !important;
+    margin-top: 1rem;
+}
+
+.card-text {
+    font-weight: 400 !important;
+    margin-bottom: 0.5rem; /* Decent spacing between lines */
+    line-height: 1.6; /* Ensure text is easier to read */
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+.container {
+    flex: 1;
+}
+
+.add-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+.edit-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* Adjusted image and text spacing in the card details page */
+.show-image {
+    height: 35vh;
+    width: 100%; /* Maintain proportionate width */
+    object-fit: cover; /* Proper scaling */
+    border-radius: 1rem; /* Smooth corners */
+    filter: contrast(1.2) brightness(1.1); /* Enhance image appearance */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add depth */
+    margin-top: 1rem; /* Add spacing between heading and image */
+    margin-bottom: 1.5rem; /* Add spacing between image and text */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.show-image:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+/* Alignment and spacing for card content */
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Center align content */
+}
+
+.show-card h3 {
+    text-align: center; /* Ensure heading is centered */
+    margin-bottom: 1rem; /* Add spacing below heading */
+}
+
+.show-card .card-body {
+    padding: 1rem; /* Add padding inside card body */
+    margin-top: -1rem; /* Slightly pull the text closer to align with heading */
+}
+
+.show-card p {
+    margin-bottom: 0.8rem; /* Adjust line spacing for text readability */
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between; /* Space buttons evenly */
+}
+#map{
+    height:400px;
+    width:80vh;
+}
