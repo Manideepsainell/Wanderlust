@@ -7,6 +7,10 @@ const { saveRedirectUrl, isLoggedIn } = require("../middleware.js"); // Make sur
 const userController=require("../controllers/user.js")
 
 router.get("/", (req, res) => {
+  res.redirect("/listings");
+});
+
+router.get("/", (req, res) => {
   res.render("listings/index"); // or "home" if you want to create a separate one
 });
 
