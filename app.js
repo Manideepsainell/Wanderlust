@@ -105,6 +105,15 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error.ejs", { err });
 });
 
+app.all('*', (req, res) => {
+  res.status(404).render('error', { message: 'Page Not Found!' });
+});
+app.get("/projects", (req, res) => {
+  res.redirect("/listings");
+});
+
+
 app.listen(8080, () => {
   console.log("✅ Server is listening on port 8080");
 });
+
