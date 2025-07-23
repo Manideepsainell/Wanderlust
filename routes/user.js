@@ -7,9 +7,13 @@ const { saveRedirectUrl, isLoggedIn } = require("../middleware.js"); // Make sur
 const userController=require("../controllers/user.js")
 
 
+// ✅ Root redirect
 router.get("/", (req, res) => {
   res.redirect("/listings");
 });
+
+// (Your signup/login routes below...)
+
 
 // Signup route
 router.route("/signup")
