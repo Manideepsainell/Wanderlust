@@ -98,10 +98,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// ✅ Redirect root to /listings
-app.get("/", (req, res) => {
-  res.send("✅ It works!");
-});
+
 
 
 // ✅ Redirect /projects to /listings (optional alias)
