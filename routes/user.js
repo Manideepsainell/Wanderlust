@@ -6,6 +6,7 @@ const passport = require("passport");
 const { saveRedirectUrl, isLoggedIn } = require("../middleware.js"); // Make sure the path is correct
 const userController=require("../controllers/user.js")
 
+
 router.get("/", (req, res) => {
   res.redirect("/listings");
 });

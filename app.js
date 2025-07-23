@@ -100,8 +100,9 @@ app.use((req, res, next) => {
 
 // ✅ Redirect root to /listings
 app.get("/", (req, res) => {
-  res.redirect("/listings");
+  res.send("✅ It works!");
 });
+
 
 // ✅ Redirect /projects to /listings (optional alias)
 app.get("/projects", (req, res) => {
