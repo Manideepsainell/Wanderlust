@@ -23,17 +23,6 @@ router
 
 router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm));
 
-router.get("/", async (req, res) => {
-    const { category } = req.query;
-    let listings;
 
-    if (category) {
-        listings = await Listing.find({ category });
-    } else {
-        listings = await Listing.find({});
-    }
-
-    res.render("listings/index", { listings, category });
-});
 
 module.exports = router;
