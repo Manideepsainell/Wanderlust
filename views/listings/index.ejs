@@ -1,94 +1,82 @@
 <% layout("/layouts/boilerplate") %>
 <body>
-   <style>
-#filters {
-  display: flex;
-  align-items: center; /* Ensures all elements align */
-  justify-content: space-between; /* Spreads icons and toggle button */
-  flex-wrap: nowrap;
-  gap: 1.5rem;
-  margin-top: 1rem; /* Adds spacing from the top */
-}
+  <style>
+    #filters {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
 
-.filter {
-  text-align: center;
-  opacity: 0.7;
-  flex: 0 1 auto;
-  margin-top: 0.5rem;
-}
+    .filter {
+      text-align: center;
+      opacity: 0.7;
+      flex: 0 1 auto;
+      margin-top: 0.5rem;
+    }
 
-.filter p {
-  font-size: 0.8rem;
-}
+    .filter p {
+      font-size: 0.8rem;
+    }
 
-.tax-toggle {
-  border: 1px solid black;
-  border-radius: 2rem;
-  height: 3rem;
-  padding: 0.5rem 1rem;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  margin-top: 0.3rem;
-  margin-bottom: 1rem; /* Adjusts vertical alignment */
-}
-
-
-
+    .tax-toggle {
+      border: 1px solid black;
+      border-radius: 2rem;
+      height: 3rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      margin-top: 0.3rem;
+      margin-bottom: 1rem;
+    }
   </style>
-<div id="filters">
-  <a href="/listings?category=Trending" class="filter text-decoration-none text-dark">
-    <div><i class="fa-solid fa-fire"></i></div>
-    <p>Trending</p>
-  </a>
-  <a href="/listings?category=Rooms" class="filter text-decoration-none text-dark">
-    <div><i class="fa-solid fa-bed"></i></div>
-    <p>Rooms</p>
-  </a>
-  <a href="/listings?category=Iconic Cities" class="filter text-decoration-none text-dark">
-    <div><i class="fa-solid fa-mountain-city"></i></div>
-    <p>Iconic Cities</p>
-  </a>
-  <a href="/listings?category=Mountains" class="filter text-decoration-none text-dark">
-    <div><i class="fa-solid fa-mountain"></i></div>
-    <p>Mountains</p>
-  </a>
-  <a href="/listings?category=Castles" class="filter text-decoration-none text-dark">
-    <div><i class="fa-brands fa-fort-awesome"></i></div>
-    <p>Castles</p>
-  </a>
-  <a href="/listings?category=Arctic" class="filter text-decoration-none text-dark">
-    <div><i class="fa-regular fa-snowflake"></i></div>
-    <p>Arctic</p>
-  </a>
-  <a href="/listings?category=Camping" class="filter text-decoration-none text-dark">
-    <div><i class="fa-solid fa-campground"></i></div>
-    <p>Camping</p>
-  </a>
-  <a href="/listings?category=Farms" class="filter text-decoration-none text-dark">
-    <div><i class="fa-solid fa-cow"></i></div>
-    <p>Farms</p>
-  </a>
-  <a href="/listings?category=Snowboarding" class="filter text-decoration-none text-dark">
-    <div><i class="fa-solid fa-person-snowboarding"></i></div>
-    <p>Snowboarding</p>
-  </a>
-  <a href="/listings?category=Beach" class="filter text-decoration-none text-dark">
-    <div><i class="fa-solid fa-umbrella-beach"></i></div>
-    <p>Beach</p>
-  </a>
 
-  <div class="tax-toggle">
-    <div class="form-check-reverse form-switch">
-      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-      <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
-    </div>
-  </div>
-</div>
+  <div id="filters">
+    <a href="/listings?category=Trending" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-fire"></i></div>
+      <p>Trending</p>
+    </a>
+    <a href="/listings?category=Rooms" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-bed"></i></div>
+      <p>Rooms</p>
+    </a>
+    <a href="/listings?category=Iconic Cities" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-mountain-city"></i></div>
+      <p>Iconic Cities</p>
+    </a>
+    <a href="/listings?category=Mountains" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-mountain"></i></div>
+      <p>Mountains</p>
+    </a>
+    <a href="/listings?category=Castles" class="filter text-decoration-none text-dark">
+      <div><i class="fa-brands fa-fort-awesome"></i></div>
+      <p>Castles</p>
+    </a>
+    <a href="/listings?category=Arctic" class="filter text-decoration-none text-dark">
+      <div><i class="fa-regular fa-snowflake"></i></div>
+      <p>Arctic</p>
+    </a>
+    <a href="/listings?category=Camping" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-campground"></i></div>
+      <p>Camping</p>
+    </a>
+    <a href="/listings?category=Farms" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-cow"></i></div>
+      <p>Farms</p>
+    </a>
+    <a href="/listings?category=Snowboarding" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-person-snowboarding"></i></div>
+      <p>Snowboarding</p>
+    </a>
+    <a href="/listings?category=Beach" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-umbrella-beach"></i></div>
+      <p>Beach</p>
+    </a>
 
-
-    
-    <!-- Tax Toggle placed correctly -->
+    <!-- Tax Toggle -->
     <div class="tax-toggle">
       <div class="form-check-reverse form-switch">
         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
