@@ -8,21 +8,23 @@ const { storage } = require("../cloudConfig.js");
 
 const upload = multer({ storage });
 
+// HOME + CREATE
 router
     .route("/")
     .get(wrapAsync(listingController.index))
     .post(isLoggedIn, upload.single("image"), wrapAsync(listingController.CreateListing));
 
-router.get("/new", isLoggedIn,saveRedirectUrl, listingController.renderNewform);
+// NEW LISTING FORM
+router.get("/new", isLoggedIn, saveRedirectUrl, listingController.renderNewform);
 
+// SHOW, UPDATE, DELETE
 router
     .route("/:id")
     .get(wrapAsync(listingController.showListings))
     .put(isLoggedIn, isOwner, upload.single("image"), validateListing, wrapAsync(listingController.updateListing))
     .delete(isLoggedIn, isOwner, wrapAsync(listingController.deleteListing));
 
+// EDIT FORM
 router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm));
-
-
 
 module.exports = router;

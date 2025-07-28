@@ -8,18 +8,42 @@ if (!mapToken) {
 
 const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
-module.exports.index = async (req, res) => {
-    const { category } = req.query;
-    let allListings;
+
+//   module.exports.index = async (req, res) => {
+//     //const { category } = req.query;
+//     console.log("✅ Category from query:", category); // check what we are receiving
+
+//     let listings;
+
+//     if (category) {
+//         listings = await Listing.find({ category: { $regex: `^${category}$`, $options: "i" } });
+//         console.log("✅ Listings found for category:", listings.length);
+//     } else {
+//         listings = await Listing.find({});
+//         console.log("✅ All Listings found:", listings.length);
+//     }
+
+//     res.render("listings/index", { listings, category });
+// };
+
+  module.exports.index = async (req, res) => {
+    const { category } = req.query; // ✅ this must be present
+
+    console.log("✅ Category from query:", category); // Just for debugging
+
+    let listings;
 
     if (category) {
-        allListings = await Listing.find({ category });
+        listings = await Listing.find({ category: { $regex: `^${category}$`, $options: "i" } });
+        console.log("✅ Listings found for category:", listings.length);
     } else {
-        allListings = await Listing.find({});
+        listings = await Listing.find({});
+        console.log("✅ All Listings found:", listings.length);
     }
 
-    res.render("listings/index.ejs", { allListings, category });
+    res.render("listings/index", { listings, category });
 };
+
 
 
 module.exports.renderNewform = (req, res) => {

@@ -33,6 +33,9 @@
       margin-bottom: 1rem;
     }
   </style>
+  <h5>Showing Category: <%= category %></h5>
+<h6>Listings Found: <%= listings.length %></h6>
+
 
   <div id="filters">
     <a href="/listings?category=Trending" class="filter text-decoration-none text-dark">
@@ -86,7 +89,7 @@
   </div>
 
   <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
-    <% for(let listing of allListings) { %>
+    <% for(let listing of listings) { %>
       <a href="/listings/<%= listing._id %>" class="listing-link">
         <div class="card col listing-card">
           <img
