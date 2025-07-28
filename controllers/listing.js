@@ -1,3 +1,4 @@
+// controllers/listinng.js
 const Listing = require('../models/listing');
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const mapToken = process.env.MAP_TOKEN;
@@ -8,42 +9,19 @@ if (!mapToken) {
 
 const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
-
-//   module.exports.index = async (req, res) => {
-//     //const { category } = req.query;
-//     console.log("✅ Category from query:", category); // check what we are receiving
-
-//     let listings;
-
-//     if (category) {
-//         listings = await Listing.find({ category: { $regex: `^${category}$`, $options: "i" } });
-//         console.log("✅ Listings found for category:", listings.length);
-//     } else {
-//         listings = await Listing.find({});
-//         console.log("✅ All Listings found:", listings.length);
-//     }
-
-//     res.render("listings/index", { listings, category });
-// };
-
-  module.exports.index = async (req, res) => {
-    const { category } = req.query; // ✅ this must be present
-
-    console.log("✅ Category from query:", category); // Just for debugging
-
+module.exports.index = async (req, res) => {
+    const { category } = req.query;
     let listings;
 
     if (category) {
-        listings = await Listing.find({ category: { $regex: `^${category}$`, $options: "i" } });
-        console.log("✅ Listings found for category:", listings.length);
+        const cleanCategory = category.trim().toLowerCase(); // ✅ Fix here
+        listings = await Listing.find({ category: cleanCategory });
     } else {
         listings = await Listing.find({});
-        console.log("✅ All Listings found:", listings.length);
     }
 
-    res.render("listings/index", { listings, category });
+    res.render("listings/index", { listings });
 };
-
 
 
 module.exports.renderNewform = (req, res) => {

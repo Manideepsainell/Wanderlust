@@ -1,4 +1,7 @@
 <% layout("/layouts/boilerplate") %>
+
+<% let activeCategory = typeof category !== 'undefined' ? category.toLowerCase() : null; %>
+
 <body>
   <style>
     #filters {
@@ -21,6 +24,12 @@
       font-size: 0.8rem;
     }
 
+    .active-filter {
+      border-bottom: 2px solid black;
+      opacity: 1 !important;
+      font-weight: bold;
+    }
+
     .tax-toggle {
       border: 1px solid black;
       border-radius: 2rem;
@@ -33,48 +42,45 @@
       margin-bottom: 1rem;
     }
   </style>
-  <h5>Showing Category: <%= category %></h5>
-<h6>Listings Found: <%= listings.length %></h6>
-
 
   <div id="filters">
-    <a href="/listings?category=Trending" class="filter text-decoration-none text-dark">
+    <a href="/listings?category=Trending" class="filter text-decoration-none text-dark <%= activeCategory === 'trending' ? 'active-filter' : '' %>">
       <div><i class="fa-solid fa-fire"></i></div>
       <p>Trending</p>
     </a>
-    <a href="/listings?category=Rooms" class="filter text-decoration-none text-dark">
+    <a href="/listings?category=Rooms" class="filter text-decoration-none text-dark <%= activeCategory === 'rooms' ? 'active-filter' : '' %>">
       <div><i class="fa-solid fa-bed"></i></div>
       <p>Rooms</p>
     </a>
-    <a href="/listings?category=Iconic Cities" class="filter text-decoration-none text-dark">
+    <a href="/listings?category=Iconic Cities" class="filter text-decoration-none text-dark <%= activeCategory === 'iconic cities' ? 'active-filter' : '' %>">
       <div><i class="fa-solid fa-mountain-city"></i></div>
       <p>Iconic Cities</p>
     </a>
-    <a href="/listings?category=Mountains" class="filter text-decoration-none text-dark">
+    <a href="/listings?category=Mountains" class="filter text-decoration-none text-dark <%= activeCategory === 'mountains' ? 'active-filter' : '' %>">
       <div><i class="fa-solid fa-mountain"></i></div>
       <p>Mountains</p>
     </a>
-    <a href="/listings?category=Castles" class="filter text-decoration-none text-dark">
+    <a href="/listings?category=Castles" class="filter text-decoration-none text-dark <%= activeCategory === 'castles' ? 'active-filter' : '' %>">
       <div><i class="fa-brands fa-fort-awesome"></i></div>
       <p>Castles</p>
     </a>
-    <a href="/listings?category=Arctic" class="filter text-decoration-none text-dark">
+    <a href="/listings?category=Arctic" class="filter text-decoration-none text-dark <%= activeCategory === 'arctic' ? 'active-filter' : '' %>">
       <div><i class="fa-regular fa-snowflake"></i></div>
       <p>Arctic</p>
     </a>
-    <a href="/listings?category=Camping" class="filter text-decoration-none text-dark">
+    <a href="/listings?category=Camping" class="filter text-decoration-none text-dark <%= activeCategory === 'camping' ? 'active-filter' : '' %>">
       <div><i class="fa-solid fa-campground"></i></div>
       <p>Camping</p>
     </a>
-    <a href="/listings?category=Farms" class="filter text-decoration-none text-dark">
+    <a href="/listings?category=Farms" class="filter text-decoration-none text-dark <%= activeCategory === 'farms' ? 'active-filter' : '' %>">
       <div><i class="fa-solid fa-cow"></i></div>
       <p>Farms</p>
     </a>
-    <a href="/listings?category=Snowboarding" class="filter text-decoration-none text-dark">
+    <a href="/listings?category=Snowboarding" class="filter text-decoration-none text-dark <%= activeCategory === 'snowboarding' ? 'active-filter' : '' %>">
       <div><i class="fa-solid fa-person-snowboarding"></i></div>
       <p>Snowboarding</p>
     </a>
-    <a href="/listings?category=Beach" class="filter text-decoration-none text-dark">
+    <a href="/listings?category=Beach" class="filter text-decoration-none text-dark <%= activeCategory === 'beach' ? 'active-filter' : '' %>">
       <div><i class="fa-solid fa-umbrella-beach"></i></div>
       <p>Beach</p>
     </a>
