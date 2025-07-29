@@ -21,6 +21,8 @@ const User = require("./models/user.js");
 const listings = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const filtersRoutes = require('./routes/filters');
+
 
 if (!dbUrl) {
   console.error("❌ Missing MONGO_URL in .env file!");
@@ -65,6 +67,7 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
+
 const sessionOptions = {
   store,
   secret: process.env.SECRET,
@@ -98,6 +101,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/filters', filtersRoutes);
 
 
 
